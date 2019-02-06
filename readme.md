@@ -35,7 +35,7 @@ Note: in HttpsServerRoute, you can see code "scsp.setClientAuthentication("NONE"
 # keystores and self-signed certificates generation (using "password" for all keystore and private key passcode)
 ## generate server keystore (remember copy it to src\main\resources)
 ```
-// CN in server certificate will be used to compare with the domain name which is used by client
+// On client side, when visiting the server with server authentiation, the CN in server certificate will be checked if the same as the domain name in URL.
 // so, using "localhost" here for local test. Otherwise, there will error as follows:
 // ... certificate subject name '<what you enter for CN here>' does not match target host name 'localhost'
 keytool -genkeypair -keyalg rsa -keysize 2048 -alias dnw-ssl-server -keystore dnw-server.jks -dname "CN=localhost" -validity 3650
